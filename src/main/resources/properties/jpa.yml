@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    database: mysql
+    open-in-view: false
+    hibernate.ddl-auto: validate
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        session.events.log.log_queries_slower_than_ms: 300
+        format_sql: true
+        highlight_sql: true
+        jdbc.log-warnings: true
+        jdbc:
+          batch_size: 1000
+          order_inserts: true
+          order_updates: true
+---
+spring:
+  config.activate.on-profile: test
+  jpa:
+    hibernate.ddl-auto: create-drop
