@@ -27,6 +27,10 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
+    implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
+
     runtimeOnly("com.mysql:mysql-connector-j")
 
     compileOnly("org.projectlombok:lombok")
@@ -35,8 +39,9 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("org.springframework.security:spring-security-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-    runtimeOnly("com.h2database:h2")
+    testRuntimeOnly("com.h2database:h2")
 }
 
 tasks.withType<Test> {
