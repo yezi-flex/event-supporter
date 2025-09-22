@@ -1,13 +1,13 @@
-package io.yezi.supporter;
+package io.yezi.broadcast;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EventSupporterApplication {
+public class BroadcastHelperApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EventSupporterApplication.class, args);
+		SpringApplication.run(BroadcastHelperApp.class, args);
 	}
 
 }

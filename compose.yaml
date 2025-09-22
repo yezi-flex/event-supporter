@@ -2,9 +2,9 @@ services:
   mysql:
     image: 'mysql:latest'
     environment:
-      - 'MYSQL_DATABASE=supporter'
+      - 'MYSQL_DATABASE=helper'
       - 'MYSQL_ROOT_PASSWORD=admin123#@!'
-      - 'MYSQL_USER=team-supporter'
-      - 'MYSQL_PASSWORD=team-pw'
+      - 'MYSQL_USER=team-helper'
+      - 'MYSQL_PASSWORD=team-helper123#@!'
     ports:
       - '3306:3306'

@@ -1,10 +1,10 @@
-package io.yezi.supporter;
+package io.yezi.broadcast;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EventSupporterApplicationTests {
+class BroadcastHelperAppTests {
 
 	@Test
 	void contextLoads() {

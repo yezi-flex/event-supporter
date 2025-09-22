@@ -6,7 +6,7 @@ plugins {
 
 group = "io.yezi"
 version = "0.0.1-SNAPSHOT"
-description = "event-supporter"
+description = "broadcast-helper"
 
 java {
     toolchain {

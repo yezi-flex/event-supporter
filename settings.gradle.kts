@@ -1,1 +1,1 @@
-rootProject.name = "event-supporter"
+rootProject.name = "broadcast-helper"
