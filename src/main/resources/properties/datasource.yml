@@ -7,13 +7,5 @@ spring:
 
 ---
 spring:
-  config.activate.on-profile: test
-  datasource:
-    hikari.jdbc-url: jdbc:h2:mem:test_db;MODE=MySQL;
-    username: sa
-    password:
-
----
-spring:
   config.activate.on-profile: local
 

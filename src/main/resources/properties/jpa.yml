@@ -1,6 +1,5 @@
 spring:
   jpa:
-    database: mysql
     open-in-view: false
     hibernate.ddl-auto: validate
     properties:
@@ -14,8 +13,4 @@ spring:
           batch_size: 1000
           order_inserts: true
           order_updates: true
----
-spring:
-  config.activate.on-profile: test
-  jpa:
-    hibernate.ddl-auto: create-drop
+
