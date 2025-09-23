@@ -14,6 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import io.yezi.broadcast.domains.streamer.domain.StreamerFixtureGenerator;
 import io.yezi.broadcast.domains.streamer.domain.model.Streamer;
 
+@DisplayName("Repository:Streamer")
 class StreamerRepoTest extends StreamerRepoTestHelper {
 	@Test
 	@DisplayName("스트리머 정보를 삭제한다.")
@@ -60,7 +61,7 @@ class StreamerRepoTest extends StreamerRepoTestHelper {
 		@DisplayName("스트리머 정보를 저장한다.")
 		void save() {
 			// Given
-			Streamer given = StreamerFixtureGenerator.createStreamer();
+			Streamer given = StreamerFixtureGenerator.스크리머_도메인_객체_생성();
 
 			// When
 			Streamer actual = streamerRepo.save(given);
@@ -78,7 +79,7 @@ class StreamerRepoTest extends StreamerRepoTestHelper {
 		void throwException_WhenDuplicatedStreamerChannelId() {
 			// Given
 			Streamer given = savedStreamer();
-			Streamer streamer = StreamerFixtureGenerator.createStreamer(
+			Streamer streamer = StreamerFixtureGenerator.스크리머_도메인_객체_생성(
 				given.getChannelId(),
 				"loginId",
 				"nickname",
@@ -95,7 +96,7 @@ class StreamerRepoTest extends StreamerRepoTestHelper {
 		void throwException_WhenDuplicatedStreamerLoginId() {
 			// Given
 			Streamer given = savedStreamer();
-			Streamer streamer = StreamerFixtureGenerator.createStreamer(
+			Streamer streamer = StreamerFixtureGenerator.스크리머_도메인_객체_생성(
 				1L,
 				given.getLoginId(),
 				"nickname",
@@ -112,7 +113,7 @@ class StreamerRepoTest extends StreamerRepoTestHelper {
 		void throwException_WhenDuplicatedStreamerStreamUrl() {
 			// Given
 			Streamer given = savedStreamer();
-			Streamer streamer = StreamerFixtureGenerator.createStreamer(
+			Streamer streamer = StreamerFixtureGenerator.스크리머_도메인_객체_생성(
 				1L,
 				"loginId",
 				"nickname",

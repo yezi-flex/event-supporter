@@ -14,7 +14,7 @@ public class StreamerRepoTestHelper extends DataJpaTestBase {
 	protected StreamerRepo streamerRepo;
 
 	protected Streamer savedStreamer() {
-		Streamer streamer = StreamerFixtureGenerator.createStreamer();
+		Streamer streamer = StreamerFixtureGenerator.스크리머_도메인_객체_생성();
 		return flushAndClear(() -> streamerRepo.save(streamer));
 	}
 

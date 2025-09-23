@@ -20,4 +20,24 @@ public class StreamerJpaRepoAdapter implements StreamerRepo {
 	public Streamer findById(Long id) {
 		return streamerJpaRepo.findById(id).orElseThrow();
 	}
+
+	@Override
+	public boolean existByLoginId(String loginId) {
+		return streamerJpaRepo.existsByLoginId(loginId);
+	}
+
+	@Override
+	public boolean existByStreamUrl(String streamUrl) {
+		return streamerJpaRepo.existsByStreamUrl(streamUrl);
+	}
+
+	@Override
+	public boolean existByNickname(String nickname) {
+		return streamerJpaRepo.existsByNickname(nickname);
+	}
+
+	@Override
+	public boolean existByChannelId(Long channelId) {
+		return streamerJpaRepo.existsByChannelId(channelId);
+	}
 }

@@ -6,4 +6,12 @@ public interface StreamerRepo {
 	Streamer save(Streamer streamer);
 
 	Streamer findById(Long id);
+
+	boolean existByLoginId(String loginId);
+
+	boolean existByStreamUrl(String streamUrl);
+
+	boolean existByNickname(String nickname);
+
+	boolean existByChannelId(Long channelId);
 }
