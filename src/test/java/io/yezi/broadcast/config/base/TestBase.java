@@ -1,4 +1,4 @@
-package io.yezi.broadcast.config;
+package io.yezi.broadcast.config.base;
 
 import org.springframework.test.context.ActiveProfiles;
 
