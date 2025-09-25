@@ -7,13 +7,12 @@ import static org.mockito.BDDMockito.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
+import io.yezi.broadcast.config.base.ServiceTestBase;
 import io.yezi.broadcast.domains.streamer.application.dto.CreateStreamerRequest;
 import io.yezi.broadcast.domains.streamer.application.policy.StreamerValidationRegistry;
 import io.yezi.broadcast.domains.streamer.domain.StreamerFixtureGenerator;
@@ -21,8 +20,7 @@ import io.yezi.broadcast.domains.streamer.domain.model.Streamer;
 import io.yezi.broadcast.domains.streamer.domain.repository.StreamerRepo;
 
 @DisplayName("Service:Streamer")
-@ExtendWith(MockitoExtension.class)
-class StreamerServiceTest {
+class StreamerServiceTest extends ServiceTestBase {
 
 	@Mock
 	private StreamerRepo streamerRepo;
@@ -40,18 +38,18 @@ class StreamerServiceTest {
 		@DisplayName("중복된 정보가 아닌 경우 스트리머를 생성 한다.")
 		void create() {
 			// Given
-			var createUserRequest = StreamerFixtureGenerator.스트리머_등록_요청_객체_생성();
+			var createStreamerRequest = StreamerFixtureGenerator.스트리머_등록_요청_객체_생성();
 			stubSaveReturnsEntityWithId();
 
 			// When
-			Long id = streamerService.create(createUserRequest);
+			Long id = streamerService.create(createStreamerRequest);
 
 			// Then
 			assertThat(id).isEqualTo(StreamerFixtureGenerator.ID);
-			ArgumentCaptor<Streamer> userCaptor = ArgumentCaptor.forClass(Streamer.class);
-			then(streamerRepo).should().save(userCaptor.capture());
+			ArgumentCaptor<Streamer> streamerCaptor = ArgumentCaptor.forClass(Streamer.class);
+			then(streamerRepo).should().save(streamerCaptor.capture());
 
-			assertStreamerSavedWith(userCaptor.getValue(), createUserRequest);
+			assertStreamerSavedWith(streamerCaptor.getValue(), createStreamerRequest);
 		}
 
 		private void stubSaveReturnsEntityWithId() {
