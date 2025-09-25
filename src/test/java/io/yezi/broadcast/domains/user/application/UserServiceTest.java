@@ -11,6 +11,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import io.yezi.broadcast.config.base.ServiceTestBase;
 import io.yezi.broadcast.domains.user.application.dto.SignUpRequest;
@@ -27,6 +28,9 @@ class UserServiceTest extends ServiceTestBase {
 
 	@Mock
 	private UserValidatePolicy userValidatePolicy;
+
+	@Mock
+	private PasswordEncoder passwordEncoder;
 
 	@InjectMocks
 	private UserService userService;
@@ -48,6 +52,8 @@ class UserServiceTest extends ServiceTestBase {
 			// Then
 			assertThat(actual).isEqualTo(UserFixtureGenerator.ID);
 			ArgumentCaptor<User> userCaptor = ArgumentCaptor.forClass(User.class);
+			then(userValidatePolicy).should().validate(given);
+			then(passwordEncoder).should().encode(given.password());
 			then(userRepo).should().save(userCaptor.capture());
 
 			assertUserSavedWith(userCaptor.getValue(), given);
@@ -56,6 +62,7 @@ class UserServiceTest extends ServiceTestBase {
 		private void stubSaveReturnsEntityWithId() {
 			BDDMockito.given(userRepo.save(any(User.class)))
 				.willAnswer(invocation -> UserFixtureGenerator.식별자가_존재하는_사용자_도메인_객체_생성());
+			given(passwordEncoder.encode(anyString())).willReturn("encodedPassword");
 		}
 
 		private void assertUserSavedWith(User actual, SignUpRequest expected) {
