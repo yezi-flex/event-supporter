@@ -2,7 +2,6 @@ package io.yezi.broadcast.domains.streamer.domain.repository;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 
 import java.util.NoSuchElementException;
 
@@ -50,7 +49,7 @@ class StreamerRepoTest extends StreamerRepoTestHelper {
 		void throwException_WhenRetrieveNotExists() {
 			// When & Then
 			assertThatExceptionOfType(NoSuchElementException.class)
-				.isThrownBy(() -> streamerRepo.findById(anyLong()));
+				.isThrownBy(() -> streamerRepo.findById(1L));
 		}
 	}
 
