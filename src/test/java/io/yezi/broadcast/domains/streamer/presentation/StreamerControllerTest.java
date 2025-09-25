@@ -9,35 +9,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import io.yezi.broadcast.common.security.SecurityConfig;
-import io.yezi.broadcast.domains.streamer.application.StreamerService;
+import io.yezi.broadcast.config.base.WebMvcTestBase;
 import io.yezi.broadcast.domains.streamer.domain.StreamerFixtureGenerator;
 
-@Import(SecurityConfig.class)
 @DisplayName("Controller:Streamer")
-@WebMvcTest(StreamerController.class)
-@AutoConfigureMockMvc
-class StreamerControllerTest {
-
-	@MockitoBean
-	private StreamerService streamerService;
-
-	@Autowired
-	private MockMvc mockMvc;
-
-	@Autowired
-	private ObjectMapper objectMapper;
+class StreamerControllerTest extends WebMvcTestBase {
 
 	@Test
 	@DisplayName("[POST:200] 스트리머 등록 API")
