@@ -3,12 +3,12 @@ package io.yezi.broadcast.domains.streamer.domain.repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 
-import io.yezi.broadcast.config.DataJpaTestBase;
+import io.yezi.broadcast.config.base.DataJpaTestBase;
 import io.yezi.broadcast.domains.streamer.domain.StreamerFixtureGenerator;
 import io.yezi.broadcast.domains.streamer.domain.model.Streamer;
-import io.yezi.broadcast.domains.streamer.infrastructure.StreamerJpaRepoAdapter;
+import io.yezi.broadcast.domains.streamer.infrastructure.StreamerRepoAdapter;
 
-@Import(StreamerJpaRepoAdapter.class)
+@Import(StreamerRepoAdapter.class)
 public class StreamerRepoTestHelper extends DataJpaTestBase {
 	@Autowired
 	protected StreamerRepo streamerRepo;

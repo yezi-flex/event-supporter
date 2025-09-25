@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @Repository
 @RequiredArgsConstructor
-public class StreamerJpaRepoAdapter implements StreamerRepo {
+public class StreamerRepoAdapter implements StreamerRepo {
 	private final StreamerJpaRepo streamerJpaRepo;
 
 	@Override
