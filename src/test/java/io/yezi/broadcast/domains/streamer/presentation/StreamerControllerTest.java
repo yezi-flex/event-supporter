@@ -40,7 +40,7 @@ class StreamerControllerTest {
 	private ObjectMapper objectMapper;
 
 	@Test
-	@DisplayName("[POST:200] 스트리머 등롟 API")
+	@DisplayName("[POST:200] 스트리머 등록 API")
 	void register() throws Exception {
 		// Given
 		var given = StreamerFixtureGenerator.스트리머_등록_요청_객체_생성();
