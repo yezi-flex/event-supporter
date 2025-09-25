@@ -6,7 +6,7 @@ public record SignUpRequest(
 	String username,
 	String password
 ) {
-	public User toEntity() {
-		return User.of(username, password);
+	public User toEntity(String encodedPassword) {
+		return User.of(username, encodedPassword);
 	}
 }
